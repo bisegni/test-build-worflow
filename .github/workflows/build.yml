@@ -31,9 +31,15 @@ jobs:
         - name: execute tests
           run: |
             echo "execute test"
+    make-docker:
+      runs-on: ubuntu-latest
+      steps:
+        - run: |
+            echo "build docke image"
     deploy:
-      needs: [test] 
-      uses: bisegni/test-deploy-workflow/.github/workflows/deploy.yml@main
-      with:
-        deploy-image: "image index"
-      secrets: inherit
+        name: update configuration project
+        runs-on: ubuntu-latest
+        steps:
+          - run: |
+              echo "patch configuration project"
+
