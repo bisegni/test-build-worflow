@@ -1,5 +1,4 @@
 name: Build k2eg with CMake
-
 on: 
   pull_request:
     types:
