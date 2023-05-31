@@ -39,7 +39,7 @@ jobs:
     deploy:
       name: Test Bullseye
       needs: [] 
-      uses: bisegni/test-deploy-worflow/.github/workflows/deploy.yml
+      uses: bisegni/test-deploy-worflow/.github/workflows/deploy.yml@main
       with:
         deploy-image: "image index"
       secrets: inherit
