@@ -25,9 +25,6 @@ jobs:
           - name: build
             run: |
               echo "Build source code"
-          - uses: ouzi-dev/commit-status-updater@v2
-            with:
-              status: success
     test:
       name: test source
       runs-on: ubuntu-latest
