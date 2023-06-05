@@ -1,5 +1,4 @@
-name: Build k2eg with CMake
-
+name: Build and test
 on: 
   pull_request:
     types:
@@ -12,34 +11,6 @@ concurrency:
   cancel-in-progress: true
 jobs:
     build:
-      name: Build source
-      runs-on: ubuntu-latest
-      steps:
-          - name: Checkout source code
-            uses: actions/checkout@v3
-          # - name: Restore cached build directory
-          #   id: cache-build-restore
-          #   uses: actions/cache@v3
-          #   with:
-          #     path: build
-          #     key: debian-bullseye-${{ hashFiles('CMakeLists.txt') }}
-          - name: build
-            run: |
-              echo "Build source code"
-          - uses: ouzi-dev/commit-status-updater@v2
-            with:
-              status: success
-    test:
-      name: test source
-      runs-on: ubuntu-latest
-      steps:
-        - name: execute tests
-          run: |
-            echo "execute test"
-    deploy:
-      name: Test Bullseye
-      needs: [] 
-      uses: bisegni/test-deploy-worflow/.github/workflows/deploy.yml@main
-      with:
-        deploy-image: "image index"
-      secrets: inherit
+        uses: bisegni/test-deploy-workflow/.github/workflows/build.yml@main
+        secrets: inherit
+
